@@ -1,0 +1,4 @@
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+
+CMD used: find /var -user bandit7 -type f -readable -group bandit6 -size 33c

@@ -1,0 +1,6 @@
+8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+CMD used : xxd -r data.txt > xyz
+
+file xyz
+and unzipped accordingly
