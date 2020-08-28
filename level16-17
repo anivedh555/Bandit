@@ -1,0 +1,23 @@
+
+CMD USED:
+
+nmap -p 31000-32000 localhost
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2020-08-28 14:07 CEST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00025s latency).
+Not shown: 996 closed ports
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+
+
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31720 -ign_eof
+
+
+You will get an RSA key. copy,paste it into your host machine and give it a 600 permission.
+then use ssh -i
+

@@ -1,0 +1,6 @@
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+./suconnect 8888
+
+second listener nc -lvp 8888
+put prev password

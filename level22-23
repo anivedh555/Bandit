@@ -1,0 +1,25 @@
+bandit22@bandit:/etc/cron.d$ cat cronjob_bandit23 
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+bandit22@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh 
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+bandit22@bandit:/etc/cron.d$ myname =$(whoami)
+-bash: myname: command not found
+bandit22@bandit:/etc/cron.d$ myname=$(whoami)
+bandit22@bandit:/etc/cron.d$ echo $myname
+bandit22
+bandit22@bandit:/etc/cron.d$ mytarget=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
+bandit22@bandit:/etc/cron.d$ echo $mytarget
+8ca319486bfbbc3663ea0fbe81326349
+bandit22@bandit:/etc/cron.d$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+
+FLAG:
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
